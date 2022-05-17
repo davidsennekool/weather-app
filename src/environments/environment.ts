@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'api.openweathermap.org/data/2.5',
-  apiKey: '04ae8a7fc5c032bd61ecbf61e6681a6a',
+  corsUrl: 'https://cors-anywhere.herokuapp.com/',
+  baseUrl: 'https://api.openweathermap.org/data/2.5',
+  appId: '04ae8a7fc5c032bd61ecbf61e6681a6a',
 };
 
 /*

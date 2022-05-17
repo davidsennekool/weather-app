@@ -1,9 +1,13 @@
-$primary: #fc0;
+// $primary: #fc0;
 
-$theme-colors: (
-  "primary": $primary
-);
+// $theme-colors: (
+//   "primary": $primary
+// );
 
 $font-family-sans-serif: "Rubik", Arial, sans-serif;
 
 $font-weight-semibold: 500;
+
+$card-border-radius: 30px;
+$card-border-width: none;
+$card-box-shadow: 3px 3px 15px 0px #bebebe;
