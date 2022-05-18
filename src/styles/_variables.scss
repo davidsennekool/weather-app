@@ -1,13 +1,14 @@
-// $primary: #fc0;
+$primary: #100F3A;
 
-// $theme-colors: (
-//   "primary": $primary
-// );
+$theme-colors: (
+  "primary": $primary,
+);
 
-$font-family-sans-serif: "Rubik", Arial, sans-serif;
+$font-family-sans-serif: "Open Sans", Arial, sans-serif;
 
+$font-weight-thin: 200;
+$font-weight-light: 300;
 $font-weight-semibold: 500;
 
-$card-border-radius: 30px;
-$card-border-width: none;
-$card-box-shadow: 3px 3px 15px 0px #bebebe;
+$card-border-width:                 none;
+$card-border-radius:                0.5rem;

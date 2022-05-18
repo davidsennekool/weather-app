@@ -4,6 +4,8 @@ export interface Weather {
   timezone: string;
   timezone_offset: number;
   current: Current;
+  minutely?: Minutely[];
+  hourly?: Hourly[];
   daily: Daily[];
 }
 
@@ -22,7 +24,7 @@ interface Daily {
   wind_speed: number;
   wind_deg: number;
   wind_gust: number;
-  weather: Weather[];
+  weather: WeatherObject[];
   clouds: number;
   pop: number;
   uvi: number;
@@ -45,6 +47,33 @@ interface Temp {
   morn: number;
 }
 
+interface Hourly {
+  dt: number;
+  temp: number;
+  feels_like: number;
+  pressure: number;
+  humidity: number;
+  dew_point: number;
+  uvi: number;
+  clouds: number;
+  visibility: number;
+  wind_speed: number;
+  wind_deg: number;
+  wind_gust: number;
+  weather: WeatherObject[];
+  pop: number;
+  rain?: Rain;
+}
+
+interface Rain {
+  '1h': number;
+}
+
+interface Minutely {
+  dt: number;
+  precipitation: number;
+}
+
 interface Current {
   dt: number;
   sunrise: number;
@@ -59,10 +88,10 @@ interface Current {
   visibility: number;
   wind_speed: number;
   wind_deg: number;
-  weather: WeatherInfo[];
+  weather: WeatherObject[];
 }
 
-interface WeatherInfo {
+interface WeatherObject {
   id: number;
   main: string;
   description: string;
