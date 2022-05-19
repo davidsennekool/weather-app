@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TemperaturePipe implements PipeTransform {
 
-  transform(value: number | undefined, ...args: unknown[]): number {
+  transform(value: number | null | undefined, ...args: unknown[]): number {
     let temperature: number = 0;
     const tempSetting = localStorage.getItem('temperature_unit');
     if (tempSetting === 'F' && value) {

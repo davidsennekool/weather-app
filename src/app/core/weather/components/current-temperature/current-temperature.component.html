@@ -3,6 +3,6 @@
   <p class="today-date">{{ localDate | date:'EE, d MMM' }}</p>
 </div>
 <div class="temperature">
-  <h1>{{ (currentWeather$ | async)?.main?.temp | temperature }}</h1>
+  <h1>{{ (currentTemperature$ | async) | temperature }}</h1>
   <span>°{{ temperatureUnit | uppercase }}</span>
 </div>

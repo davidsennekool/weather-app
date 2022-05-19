@@ -1,12 +1,14 @@
 <table class="table">
-  <!-- <tbody>
-    <tr *ngFor="let dailyWeather of (weather$ | async)?.daily">
-      <th scope="row">{{ dailyWeather.dt | date:'EE' }}</th>
-      <td>{{ dailyWeather.weather[0].icon }}</td>
-      <td>{{ dailyWeather.temp.min | temperature }}<span>Low</span></td>
-      <td>{{ dailyWeather.temp.max | temperature }}<span>High</span></td>
-      <td>{{ dailyWeather.wind_speed }} <span>km/h</span></td>
-      <td>{{ (dailyWeather.pop * 100) }}% <span>Rain</span></td>
+  <tbody>
+    <tr *ngFor="let dailyForecast of (forecast$ | async)?.list">
+      <th scope="row">{{ (dailyForecast.dt * 1000) | date:'EE' }}</th>
+      <td>{{ dailyForecast.weather[0].icon }}</td>
+      <td>{{ dailyForecast.main.temp | temperature }}<span>Low</span></td>
+      <td>{{ dailyForecast.main.temp_max| temperature }}<span>High</span></td>
+      <td>
+        {{ dailyForecast.wind.speed }} <span>km/h</span>
+      </td>
+      <td>{{ (dailyForecast.pop * 100) }}% <span>Rain</span></td>
     </tr>
-  </tbody> -->
+  </tbody>
 </table>

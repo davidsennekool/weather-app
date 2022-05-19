@@ -15,8 +15,6 @@ export class HourlyWeatherComponent implements OnInit {
     private weatherService: WeatherService,
   ) { }
 
-  ngOnInit(): void {
-    this.weather$ = this.weatherService.getCurrentWeather('Groningen');
-  }
+  ngOnInit(): void { }
 
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { TemperaturePipe } from './pipes/temperature.pipe';
 import { NthElementPipe } from './pipes/nth-element.pipe';
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbTypeaheadModule
   ],
   exports: [
     TemperaturePipe,
