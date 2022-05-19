@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   corsUrl: 'https://cors-anywhere.herokuapp.com/',
-  baseUrl: 'https://api.openweathermap.org/data/2.5',
+  baseUrl: 'https://api.openweathermap.org',
   appId: '04ae8a7fc5c032bd61ecbf61e6681a6a',
 };
 
