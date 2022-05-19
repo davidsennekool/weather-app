@@ -1,22 +1,52 @@
 <div class="row">
-  <div class="col-4">
-    <div class="card">
+  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100">
       <div class="card-body">
-        Wind Speed
+        <h2 class="card-title">Feels like</h2>
+        <div class="card-value humidity">{{ (currentStats$ | async)?.main?.feels_like | temperature }}
+        <span>°{{ temperatureUnit | uppercase }}</span>
+      </div>
       </div>
     </div>
   </div>
-  <div class="col-4">
-    <div class="card">
+  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100">
       <div class="card-body">
-        UV Index
+        <h2 class="card-title">Wind Speed</h2>
+        <div class="card-value wind-speed">{{ (currentStats$ | async)?.wind?.speed }} km/h</div>
       </div>
     </div>
   </div>
-  <div class="col-4">
-    <div class="card">
+  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100">
       <div class="card-body">
-        wind speed
+        <h2 class="card-title">UV Index</h2>
+        <div class="card-value uvi">{{ (forecast$ | async)?.current?.uvi }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100">
+      <div class="card-body">
+        <h2 class="card-title">Humidity</h2>
+        <div class="card-value humidity">{{ (currentStats$ | async)?.main?.humidity }}%</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100">
+      <div class="card-body">
+        <h2 class="card-title">Visibility</h2>
+        <div class="card-value humidity">{{ ((currentStats$ | async)?.visibility! / 1000) }} km</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100">
+      <div class="card-body">
+        <h2 class="card-title">Sunrise & Sunset</h2>
+        <div class="card-value sunrise">Sunrise: {{ (currentStats$ | async)?.sys?.sunrise }}</div>
+        <div class="card-value sunset">Sunset: {{ (currentStats$ | async)?.sys?.sunset }}</div>
       </div>
     </div>
   </div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/core/store/app.state';
+import { selectCurrentWeather, selectForecast } from 'src/app/core/store/weather/weather.selectors';
 
 @Component({
   selector: 'app-current-stats',
@@ -6,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./current-stats.component.scss']
 })
 export class CurrentStatsComponent implements OnInit {
+  currentStats$ = this.store.select(selectCurrentWeather);
+  forecast$ = this.store.select(selectForecast);
+  temperatureUnit = localStorage.getItem('temperature_unit');
 
-  constructor() { }
+  constructor(
+    private store: Store<AppState>,
+  ) { }
 
   ngOnInit(): void {
   }
