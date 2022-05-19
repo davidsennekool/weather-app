@@ -6,13 +6,6 @@ import { CurrentStatsComponent } from './components/current-stats/current-stats.
 import { ForecastComponent } from './components/forecast/forecast.component';
 import { HourlyWeatherComponent } from './components/hourly-weather/hourly-weather.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { StoreModule } from '@ngrx/store';
-import { environment } from 'src/environments/environment.prod';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { weatherReducer } from '../store/reducers/weather.reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { WeatherEffects } from '../store';
-
 
 
 @NgModule({
@@ -25,16 +18,6 @@ import { WeatherEffects } from '../store';
   imports: [
     CommonModule,
     SharedModule,
-    StoreModule.forRoot({
-      weather: weatherReducer,
-    }, {}),
-    EffectsModule.forRoot([
-      WeatherEffects
-    ]),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production
-    }),
   ],
   exports: [
     CurrentTemperatureComponent,
