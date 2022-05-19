@@ -1,9 +1,6 @@
 <div class="container text-center">
   <div class="row my-5">
-    <div class="search-bar">
-      <input type="text" placeholder="Search for places ...">
-    </div>
-    <!-- <app-searchbar></app-searchbar> -->
+    <app-location-search></app-location-search>
   </div>
   <div class="row">
     <div class="col-md-6">
@@ -19,17 +16,6 @@
   </div>
 
   <div class="weather-forecast">
-    <table class="table">
-      <tbody>
-        <tr *ngFor="let dailyWeather of (weather$ | async)?.daily">
-          <th scope="row">{{ dailyWeather.dt | date:'EE' }}</th>
-          <td>{{ dailyWeather.weather[0].icon }}</td>
-          <td>{{ dailyWeather.temp.min | temperature }}<span>Low</span></td>
-          <td>{{ dailyWeather.temp.max | temperature }}<span>High</span></td>
-          <td>{{ dailyWeather.wind_speed }} <span>km/h</span></td>
-          <td>{{ (dailyWeather.pop * 100) }}% <span>Rain</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <app-forecast></app-forecast>
   </div>
 </div>
