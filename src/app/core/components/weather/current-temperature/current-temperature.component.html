@@ -1,8 +1,0 @@
-<div class="date-info">
-  <p class="today">Today</p>
-  <p class="today-date">{{ localDate | date:'EE, d MMM' }}</p>
-</div>
-<div class="temperature">
-  <h1>{{ (weather$ | async)?.current?.temp | temperature }}</h1>
-  <span>°{{ temperatureUnit | uppercase }}</span>
-</div>
