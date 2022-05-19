@@ -44,7 +44,7 @@ export class WeatherService {
     return this.http.get<Forecast>(`${environment.corsUrl}${environment.baseUrl}/data/2.5/forecast`, options);
   }
 
-  getForecastOneCall({ lat, lon }: { lat: number; lon: number }): Observable<any> {
+  getForecastOneCall({ lat, lon }: { lat: number; lon: number }): Observable<Forecast> {
     let options = {
       headers: this.headers,
       params: {
@@ -54,7 +54,7 @@ export class WeatherService {
         appid: environment.appId,
       }
     };
-    return this.http.get<any>(`${environment.corsUrl}${environment.baseUrl}/data/2.5/onecall`, options);
+    return this.http.get<Forecast>(`${environment.corsUrl}${environment.baseUrl}/data/2.5/onecall`, options);
   }
 
   setTemperatureUnit(unit: string) {

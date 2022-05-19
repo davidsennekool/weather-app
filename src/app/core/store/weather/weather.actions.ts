@@ -13,7 +13,7 @@ export const loadWeatherSuccess = createAction(
   props<{
     weatherSuccessResponse: {
       currentWeather: CurrentWeather,
-      forecast: Forecast
+      // forecast: Forecast
     }
   }>()
 );
@@ -21,4 +21,18 @@ export const loadWeatherSuccess = createAction(
 export const loadWeatherFailure = createAction(
   '[Weather] Weather Load Failure',
   props<{ error: string }>()
+);
+
+export const loadOneCallForecast = createAction(
+  '[Weather] Load One Call Forecast',
+  props<{ lat: number; lon: number }>()
+);
+
+export const loadOneCallForecastSuccess = createAction(
+  '[Weather] Weather One Call Forecast Success',
+  props<{
+    weatherSuccessResponse: {
+      forecast: Forecast
+    }
+  }>()
 );
