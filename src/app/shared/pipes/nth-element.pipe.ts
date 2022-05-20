@@ -7,13 +7,8 @@ import { Hourly } from 'src/app/core/interfaces/forecast';
 export class NthElementPipe implements PipeTransform {
 
   transform(value: Hourly[] | undefined, arg: number): Hourly[] {
-    if (value === undefined) return [];
-    if (!this.supports(value)) {throw new Error('Error in nthElementPipe')};
-    return value.filter((v, i) => (i % arg === 0));
-  }
-
-  private supports(obj: any): boolean {
-    return typeof obj === 'string' || Array.isArray(obj);
+    if (value === undefined || value === null ) return [];
+    return value.filter((v: Hourly, i) => (i % arg === 0));
   }
 
 }
