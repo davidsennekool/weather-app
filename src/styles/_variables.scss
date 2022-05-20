@@ -1,5 +1,6 @@
 $primary: #100F3A;
 $gray: #bebebe;
+$body-bg: #fafafa;
 
 $theme-colors: (
   "primary": $primary,
@@ -12,4 +13,6 @@ $font-weight-light: 300;
 $font-weight-semibold: 500;
 
 $card-border-width:                 none;
-$card-border-radius:                0.5rem;
+$card-border-radius:                0.75rem;
+$card-spacer-y:                     1.5rem;
+$card-spacer-x:                     1.5rem;
