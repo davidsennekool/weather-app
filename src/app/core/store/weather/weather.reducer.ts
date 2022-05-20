@@ -6,12 +6,14 @@ import { loadOneCallForecast, loadOneCallForecastSuccess, loadWeather, loadWeath
 export interface WeatherState {
   current?: CurrentWeather;
   forecast?: Forecast;
+  location: string;
   isLoading: boolean;
   loaded: boolean;
   currentWeatherError?: string;
 };
 
 const initialState: WeatherState = {
+  location: 'Groningen',
   isLoading: false,
   loaded: false,
 };
@@ -26,6 +28,7 @@ export const weatherReducer = createReducer(
     return {
       ...state,
       current: weatherSuccessResponse.currentWeather,
+      location: weatherSuccessResponse.location,
       isLoading: false,
       loaded: true,
     };

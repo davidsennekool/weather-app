@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 
 import { AppState } from 'src/app/core/store/app.state';
 import { selectTemperatureUnit } from 'src/app/core/store/temperature/temperature.selectors';
-import { selectCurrentTemperature, selectCurrentWeatherIcon, selectIsLoading } from 'src/app/core/store/weather/weather.selectors';
+import { selectCurrentTemperature, selectCurrentWeatherIcon, selectIsLoading, selectLocation } from 'src/app/core/store/weather/weather.selectors';
 
 @Component({
   selector: 'app-current-temperature',
@@ -15,6 +15,7 @@ export class CurrentTemperatureComponent {
   temperatureUnit$ = this.store.select(selectTemperatureUnit);
   currentTemperature$ = this.store.select(selectCurrentTemperature);
   currentWeatherIcon$ = this.store.select(selectCurrentWeatherIcon);
+  location$ = this.store.select(selectLocation);
   localDate = new Date();
 
   constructor(

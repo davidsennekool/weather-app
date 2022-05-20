@@ -13,7 +13,7 @@ export const loadWeatherSuccess = createAction(
   props<{
     weatherSuccessResponse: {
       currentWeather: CurrentWeather,
-      // forecast: Forecast
+      location: string;
     }
   }>()
 );

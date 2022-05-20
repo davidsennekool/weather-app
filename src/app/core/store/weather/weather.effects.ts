@@ -1,30 +1,26 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { forkJoin, map, switchMap } from "rxjs";
+import { map, switchMap } from "rxjs";
 
 import { WeatherService } from "../../services/weather.service";
-import { loadOneCallForecast, loadOneCallForecastSuccess, loadWeather, loadWeatherFailure, loadWeatherSuccess } from "./weather.actions";
+import { loadOneCallForecastSuccess, loadWeather, loadWeatherSuccess } from "./weather.actions";
 
 @Injectable()
 export class WeatherEffects {
   loadWeather$ = createEffect(() =>this.actions$.pipe(
     ofType(loadWeather),
     switchMap((action) => {
-      return forkJoin([
-        this.weatherService.getCurrentWeather(action),
-        // this.weatherService.getForecast(action)
-      ]).pipe(
-        map(res => {
+      return this.weatherService.getCurrentWeather(action).pipe(
+        map(currentWeather => {
           return loadWeatherSuccess({
             weatherSuccessResponse: {
-              currentWeather: res[0],
-              // forecast: res[1]
+              currentWeather,
+              location: action.location
             }
           })
         })
       );
-    }),
-    // map((res) => loadOneCallForecast({ lat: res.weatherSuccessResponse.currentWeather.coord.lat, lon: res.weatherSuccessResponse.currentWeather.coord.lon }))
+    })
   ));
 
   loadForecast$ = createEffect(() => this.actions$.pipe(
@@ -35,7 +31,7 @@ export class WeatherEffects {
           return loadOneCallForecastSuccess({
             weatherSuccessResponse: {
               forecast
-            }
+            },
           })
         })
       )

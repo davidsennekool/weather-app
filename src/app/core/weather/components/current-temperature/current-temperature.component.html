@@ -5,7 +5,7 @@
     <span>°{{ temperatureUnit$ | async }}</span>
   </div>
   <div class="date-info">
-    <p class="today">Today</p>
+    <p class="today">Today in {{ location$ | async | titlecase }}</p>
     <p class="today-date">{{ localDate | date:'EE, d MMM' }}</p>
   </div>
 </div>
