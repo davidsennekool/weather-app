@@ -12,7 +12,7 @@ export class CurrentStatsComponent implements OnInit {
   currentStats$ = this.store.select(selectCurrentWeather);
   forecast$ = this.store.select(selectForecast);
   temperatureUnit = localStorage.getItem('temperature_unit');
-
+  math = Math;
   constructor(
     private store: Store<AppState>,
   ) { }

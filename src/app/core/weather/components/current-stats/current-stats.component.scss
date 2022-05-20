@@ -1,0 +1,173 @@
+@import './../../../../../styles/common';
+
+.card {
+  text-align: left;
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: $gray;
+  }
+
+  .card-value {
+    font-size: 3rem;
+    font-weight: 500;
+    padding: 1.25rem 0;
+
+    span {
+      font-size: 1.5rem;
+    }
+  }
+  &.feels-like {
+    .card-value {
+      display: flex;
+      span {
+        line-height: 3rem;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+  &.wind-speed {
+    .card-value {
+      span {
+        line-height: 1;
+      }
+    }
+    .card-sub-value {
+      display: flex;
+      align-items: center;
+
+      .wind-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border: 2px solid #bebebe;
+        border-radius: 50%;
+
+        img {
+          height: 65%;
+          transform-origin: center center;
+        }
+      }
+
+      .direction {
+        padding-left: 0.5rem;
+        font-size: 1.125rem;
+        height: 23px;
+        font-weight: 500;
+      }
+    }
+  }
+  &.uvi {
+    $gauge-width: 12rem;
+    $gauge-height: 6rem;
+    figure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem 0;
+      margin: 0;
+
+      .gauge {
+        position: relative;
+        width: $gauge-width;
+        height: $gauge-height;
+        overflow: hidden;
+
+        &:before,
+        &:after,
+        .meter {
+          content: '';
+          position: absolute;
+          display: block;
+        }
+
+        &:before,
+        .meter {
+          width: $gauge-width;
+          height: $gauge-height;
+        }
+
+        &:before {
+          border-radius: $gauge-height $gauge-height 0 0;
+          background: #bebebe;
+        }
+
+        &:after {
+          position: absolute;
+          bottom: 0;
+          left: 2rem;
+          width: 8rem;
+          height: 4rem;
+          background: #fff;
+          border-radius: 4rem 4rem 0 0;
+        }
+
+        .meter {
+          top: 100%;
+          transition: 1.5s;
+          transform-origin: center top;
+          border-radius: 0 0 $gauge-height*2 $gauge-height*2;
+          background: #ffde00;
+        }
+
+        .percentage-container {
+          position: absolute;
+          text-align: center;
+          bottom: -0.75rem;
+          left: 3.5rem;
+          z-index: 1000;
+          width: 5rem;
+          height: $gauge-height/2;
+          overflow: hidden;
+
+          .percentage-indicator {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #333;
+            line-height: $gauge-height/2;
+            white-space: pre;
+            transition: 1.5s;
+            vertical-align: baseline;
+            user-select: none;
+          }
+        }
+      }
+    }
+  }
+  &.humidity {
+    .card-value {
+      display: flex;
+      span {
+        line-height: 3rem;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+  &.visibilty {
+    .card-value {
+      span {
+        line-height: 1;
+      }
+    }
+  }
+  &.sunrise-sunset {
+    .card-value-sm {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+      span {
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin-left: 1rem;
+        height: 23px;
+      }
+    }
+  }
+}

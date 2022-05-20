@@ -1,56 +1,80 @@
 <div class="row">
-  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
-    <div class="card w-100">
+  <div class="col-md-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100 feels-like">
       <div class="card-body">
         <h2 class="card-title">Feels like</h2>
-        <div class="card-value humidity">{{ (currentStats$ | async)?.main?.feels_like | temperature }}
-        <span>°{{ temperatureUnit | uppercase }}</span>
-      </div>
+        <div class="card-value">{{ (currentStats$ | async)?.main?.feels_like | temperature }}
+          <span>°{{ temperatureUnit | uppercase }}</span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
-    <div class="card w-100">
+  <div class="col-md-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100 wind-speed">
       <div class="card-body">
         <h2 class="card-title">Wind Speed</h2>
-        <div class="card-value wind-speed">{{ (currentStats$ | async)?.wind?.speed }} km/h</div>
+        <div class="card-value">{{ (currentStats$ | async)?.wind?.speed }}
+          <span>km/h</span>
+        </div>
+        <div class="card-sub-value">
+          <div class="wind-arrow">
+            <img src="/assets/images/arrow.svg" [ngStyle]="{'transform': 'rotate(' + (currentStats$ | async)?.wind?.deg + 'deg)'}" alt="Wind arrow">
+          </div>
+          <span class="direction">{{ (currentStats$ | async)?.wind?.deg | windDirection }}</span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
-    <div class="card w-100">
+  <div class="col-md-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100 uvi">
       <div class="card-body">
         <h2 class="card-title">UV Index</h2>
-        <div class="card-value uvi">{{ (forecast$ | async)?.current?.uvi }}</div>
+
+        <figure>
+          <div class="gauge percentage">
+            <div [ngStyle]="{'transform': 'rotate(' + (((forecast$ | async)?.current?.uvi! * 180) / 11) + 'deg)'}"
+              class="meter"></div>
+            <div class="percentage-container">
+              <div class="percentage-indicator">{{ math.floor((forecast$ | async)?.current?.uvi!) }}</div>
+            </div>
+          </div>
+        </figure>
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
-    <div class="card w-100">
+  <div class="col-md-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100 humidity">
       <div class="card-body">
         <h2 class="card-title">Humidity</h2>
-        <div class="card-value humidity">{{ (currentStats$ | async)?.main?.humidity }}%</div>
+        <div class="card-value">{{ (currentStats$ | async)?.main?.humidity }}
+          <span>%</span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
-    <div class="card w-100">
+  <div class="col-md-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100 visibilty">
       <div class="card-body">
         <h2 class="card-title">Visibility</h2>
-        <div class="card-value humidity">{{ ((currentStats$ | async)?.visibility! / 1000) }} km</div>
+        <div class="card-value">{{ ((currentStats$ | async)?.visibility! / 1000) }}
+          <span>km</span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-xl-4 d-flex align-self-stretch mb-4">
-    <div class="card w-100">
+  <div class="col-md-6 col-xl-4 d-flex align-self-stretch mb-4">
+    <div class="card w-100 sunrise-sunset">
       <div class="card-body">
         <h2 class="card-title">Sunrise & Sunset</h2>
-        <div class="card-value sunrise">Sunrise: {{ (currentStats$ | async)?.sys?.sunrise }}</div>
-        <div class="card-value sunset">Sunset: {{ (currentStats$ | async)?.sys?.sunset }}</div>
+        <div class="card-value-sm mb-3 pt-2">
+          <img src="/assets/images/sunrise.svg" alt="Sunrise">
+          <span>{{ ((currentStats$ | async)?.sys?.sunrise! * 1000) | date:'HH:mm' }}</span>
+        </div>
+        <div class="card-value-sm pb-2">
+          <img src="/assets/images/sunset.svg" alt="Sunset">
+          <span>{{ ((currentStats$ | async)?.sys?.sunset! * 1000) | date:'HH:mm' }}</span>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<p>
-  windsnelheid
-</p>

@@ -23,10 +23,12 @@
 
   h1 {
     font-size: 6rem;
-    font-weight: $font-weight-light;
+    font-weight: 400;
   }
   span {
-    font-weight: $font-weight-thin;
-    line-height: 3;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 4.5rem;
+    padding-left: 0.5rem;
   }
 }
