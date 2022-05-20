@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { catchError, debounceTime, distinctUntilChanged, Observable, Observer, of, OperatorFunction, switchMap, tap } from 'rxjs';
 import { WeatherService } from 'src/app/core/services/weather.service';
 
 import { AppState } from 'src/app/core/store/app.state';
@@ -19,11 +18,9 @@ export class LocationSearchComponent implements OnInit {
 
   constructor(
     private store: Store<AppState>,
-    private weatherService: WeatherService,
   ) { }
 
   ngOnInit(): void {
-
     navigator.geolocation.watchPosition((position) => {
       this.store.dispatch(loadWeather({ location: 'Groningen' }));
     });
