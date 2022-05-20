@@ -3,11 +3,11 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 44 40" style="enable-background:new 0 0 44 40;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#DADADA;}
-	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#E9E9E9;}
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#AFAFAF;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#CECECE;}
 </style>
 <path class="st0" d="M42,32H2c-1.1,0-2-0.9-2-2s0.9-2,2-2h40c1.1,0,2,0.9,2,2S43.1,32,42,32z"/>
-<path class="st0" d="M42,24H2c-1.1,0-2-0.9-2-2s0.9-2,2-2h40c1.1,0,2,0.9,2,2C44,23.1,43.1,24,42,24z"/>
+<path class="st0" d="M42,24H2c-1.1,0-2-0.9-2-2s0.9-2,2-2h40c1.1,0,2,0.9,2,2S43.1,24,42,24z"/>
 <path class="st1" d="M32,12c-1.6,0-3.1,0.5-4.3,1.3C26.5,8,21.7,4,16,4C9.4,4,4,9.4,4,16H0C0,7.2,7.2,0,16,0c6,0,11.2,3.3,14,8.2
 	C30.7,8.1,31.3,8,32,8c5.2,0,9.7,3.3,11.3,8h-4.4C37.5,13.7,35,12,32,12z"/>
 <path class="st0" d="M2,36h40c1.1,0,2,0.9,2,2s-0.9,2-2,2H2c-1.1,0-2-0.9-2-2S0.9,36,2,36z"/>
