@@ -16,6 +16,11 @@ export const selectCurrentTemperature = createSelector(
   (state: WeatherState) => state.current?.main.temp
 );
 
+export const selectCurrentWeatherIcon = createSelector(
+  selectWeather,
+  (state: WeatherState) => state.current?.weather[0].icon
+);
+
 export const selectCurrentWeather = createSelector(
   selectWeather,
   (state: WeatherState) => state.current
