@@ -1,0 +1,2 @@
+<button (click)="toggleTemperatureUnit('C')" [disabled]="(temperatureUnit$ | async) === 'C'">°C</button>
+<button (click)="toggleTemperatureUnit('F')" [disabled]="(temperatureUnit$ | async) === 'F'">°F</button>

@@ -1,8 +1,8 @@
 <div class="current-temperature">
-  <img [src]="'/assets/images/weather-icons/' + (currentWeatherIcon$ | async) + '.svg'" class="weather-icon" alt="Weather icon">
+  <img [src]="(currentWeatherIcon$ | async)" class="weather-icon" alt="Weather icon">
   <div class="temperature">
-    <h1>{{ (currentTemperature$ | async) | temperature }}</h1>
-    <span>°{{ temperatureUnit }}</span>
+    <h1>{{ (currentTemperature$ | async) | temperature:(temperatureUnit$ | async) }}</h1>
+    <span>°{{ temperatureUnit$ | async }}</span>
   </div>
   <div class="date-info">
     <p class="today">Today</p>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { catchError, debounceTime, distinctUntilChanged, Observable, of, OperatorFunction, switchMap, tap } from 'rxjs';
-import { WeatherService } from './core/services/weather.service';
+import { Store } from '@ngrx/store';
+
+import { AppState } from './core/store/app.state';
+import { loadTemperatureUnit } from './core/store/temperature/temperature.actions';
 
 @Component({
   selector: 'app-root',
@@ -8,32 +10,12 @@ import { WeatherService } from './core/services/weather.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  model: any;
-  searching = false;
-  searchFailed = false;
 
   constructor(
-    private weatherService: WeatherService,
+    private store: Store<AppState>,
   ) { }
 
   ngOnInit() {
-    localStorage.setItem('temperature_unit', 'C');
+    this.store.dispatch(loadTemperatureUnit({ temperatureUnit: 'C' }));
   }
-
-  // search: OperatorFunction<string, readonly string[]> = (text$: Observable<string>) => {
-  //   text$.pipe(
-  //     debounceTime(300),
-  //     distinctUntilChanged(),
-  //     tap(() => this.searching = true),
-  //     switchMap(term =>
-  //       this.weatherService.searchLocation(term).pipe(
-  //         tap(() => this.searchFailed = false),
-  //         catchError(() => {
-  //           this.searchFailed = true;
-  //           return of([]);
-  //         }))
-  //     ),
-  //     tap(() => this.searching = false)
-  //   )
-  // }
 }

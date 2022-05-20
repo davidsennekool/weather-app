@@ -7,6 +7,7 @@ import { NthElementPipe } from './pipes/nth-element.pipe';
 import { LocationSearchComponent } from './components/location-search/location-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WindDirectionPipe } from './pipes/wind-direction.pipe';
+import { TemperatureUnitToggleComponent } from './components/temperature-unit-toggle/temperature-unit-toggle.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { WindDirectionPipe } from './pipes/wind-direction.pipe';
     NthElementPipe,
     LocationSearchComponent,
     WindDirectionPipe,
+    TemperatureUnitToggleComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { WindDirectionPipe } from './pipes/wind-direction.pipe';
     NthElementPipe,
     WindDirectionPipe,
     LocationSearchComponent,
+    TemperatureUnitToggleComponent,
   ]
 })
 export class SharedModule { }

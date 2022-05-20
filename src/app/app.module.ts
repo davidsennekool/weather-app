@@ -12,6 +12,8 @@ import { WeatherEffects } from './core/store/weather/weather.effects';
 import { weatherReducer } from './core/store/weather/weather.reducer';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { temperatureUnitReducer } from './core/store/temperature/temperature.reducer';
+import { TemperatureEffects } from './core/store/temperature/temperature.effects';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ weather: weatherReducer }),
-    EffectsModule.forRoot([WeatherEffects]),
+    StoreModule.forRoot({
+      weather: weatherReducer,
+      temperature: temperatureUnitReducer
+    }),
+    EffectsModule.forRoot([WeatherEffects, TemperatureEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production

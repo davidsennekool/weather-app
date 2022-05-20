@@ -1,3 +1,6 @@
-<form class="search-bar" (ngSubmit)="search(searchForm)" #searchForm='ngForm'>
-  <input type="text" [(ngModel)]="location" placeholder="Search for places ..." #lo='ngModel' name='lo'>
-</form>
+<div class="d-flex align-items-center justify-content-center">
+  <form class="search-bar" (ngSubmit)="search(searchForm)" #searchForm='ngForm'>
+    <input type="text" [(ngModel)]="location" placeholder="Search for places ..." #lo='ngModel' name='lo'>
+  </form>
+  <app-temperature-unit-toggle></app-temperature-unit-toggle>
+</div>

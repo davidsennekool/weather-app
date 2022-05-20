@@ -4,8 +4,8 @@
     <div class="card">
       <div class="card-body text-center">
         <div class="time">{{ todaysWeather.dt | date:'HH:mm' }}</div>
-        <img [src]="'/assets/images/weather-icons/' + todaysWeather.weather[0].icon + '.svg'" class="weather-icon" alt="Weather icon">
-        <div class="temperature">{{ todaysWeather.temp | temperature }} °{{ temperatureUnit }}</div>
+        <img [src]="todaysWeather.weather[0].icon" class="weather-icon" alt="Weather icon">
+        <div class="temperature">{{ todaysWeather.temp | temperature:(temperatureUnit$ | async) }} °{{ (temperatureUnit$ | async) }}</div>
       </div>
     </div>
   </div>

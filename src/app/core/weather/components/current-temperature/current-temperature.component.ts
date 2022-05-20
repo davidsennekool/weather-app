@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from 'src/app/core/store/app.state';
+import { selectTemperatureUnit } from 'src/app/core/store/temperature/temperature.selectors';
 import { selectCurrentTemperature, selectCurrentWeatherIcon, selectIsLoading } from 'src/app/core/store/weather/weather.selectors';
 
 @Component({
@@ -10,11 +11,11 @@ import { selectCurrentTemperature, selectCurrentWeatherIcon, selectIsLoading } f
   styleUrls: ['./current-temperature.component.scss']
 })
 export class CurrentTemperatureComponent {
-  temperatureUnit = localStorage.getItem('temperature_unit');
-  localDate = new Date();
   isLoading$ = this.store.select(selectIsLoading);
+  temperatureUnit$ = this.store.select(selectTemperatureUnit);
   currentTemperature$ = this.store.select(selectCurrentTemperature);
   currentWeatherIcon$ = this.store.select(selectCurrentWeatherIcon);
+  localDate = new Date();
 
   constructor(
     private store: Store<AppState>,
