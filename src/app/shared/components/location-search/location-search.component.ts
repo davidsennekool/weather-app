@@ -21,9 +21,10 @@ export class LocationSearchComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    navigator.geolocation.watchPosition((position) => {
-      this.store.dispatch(loadWeather({ location: 'Groningen' }));
-    });
+    this.store.dispatch(loadWeather({ location: 'Groningen' }));
+    // navigator.geolocation.watchPosition((position) => {
+    //   this.store.dispatch(loadWeather({ location: 'Groningen' }));
+    // });
   }
 
   search(searchForm: NgForm) {
