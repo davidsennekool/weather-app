@@ -1,12 +1,12 @@
 import { createAction, props } from "@ngrx/store";
 
-// Create weather actions
-export const loadTemperatureUnit = createAction(
-  '[TemperatureUnit] Load Temperature Unit',
-  props<{ temperatureUnit: string; }>()
+// Create temperature unit actions
+export const setTemperatureUnit = createAction(
+  '[TemperatureUnit] Set Temperature Unit',
+  props<{ unit: string; }>()
 );
 
-export const loadTemperatureUnitSuccess = createAction(
-  '[TemperatureUnit] Load Temperature Unit Success',
-  props<{ temperatureUnit: string; }>()
+export const setTemperatureUnitSuccess = createAction(
+  '[TemperatureUnit] Set Temperature Unit Success',
+  props<{ unit: string; }>()
 );

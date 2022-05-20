@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from './core/store/app.state';
-import { loadTemperatureUnit } from './core/store/temperature/temperature.actions';
+import { setTemperatureUnit } from './core/store/temperature/temperature.actions';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.store.dispatch(loadTemperatureUnit({ temperatureUnit: 'C' }));
+    this.store.dispatch(setTemperatureUnit({ unit: 'C' }));
   }
 }

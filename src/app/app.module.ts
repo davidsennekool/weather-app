@@ -3,15 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
+import { environment } from 'src/environments/environment';
 import { CoreModule } from './core/core.module';
 import { WeatherEffects } from './core/store/weather/weather.effects';
 import { weatherReducer } from './core/store/weather/weather.reducer';
 import { SharedModule } from './shared/shared.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { temperatureUnitReducer } from './core/store/temperature/temperature.reducer';
 import { TemperatureEffects } from './core/store/temperature/temperature.effects';
 

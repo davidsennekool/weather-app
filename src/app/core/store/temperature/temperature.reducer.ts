@@ -1,29 +1,29 @@
 import { createReducer, on } from "@ngrx/store";
-import { loadTemperatureUnit, loadTemperatureUnitSuccess } from "./temperature.actions";
+
+import { setTemperatureUnit, setTemperatureUnitSuccess } from "./temperature.actions";
 
 interface InitialState {
-  temperatureUnit: string
+  unit: string
   isLoading: boolean;
   loaded: boolean;
 };
 
 const initialState: InitialState = {
-  temperatureUnit: 'C',
+  unit: 'C',
   isLoading: false,
   loaded: false,
 };
 
 export const temperatureUnitReducer = createReducer(
   initialState,
-  on(loadTemperatureUnit, (state) => ({
+  on(setTemperatureUnit, (state) => ({
     ...state,
     isLoading: true,
-    temperatureUnit: state.temperatureUnit,
   })),
-  on(loadTemperatureUnitSuccess, (state, { temperatureUnit }) => {
+  on(setTemperatureUnitSuccess, (state, { unit }) => {
     return {
       ...state,
-      temperatureUnit: temperatureUnit,
+      unit,
       isLoading: false,
       loaded: true,
     };

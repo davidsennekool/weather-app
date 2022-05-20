@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from 'src/app/core/store/app.state';
-import { loadTemperatureUnit } from 'src/app/core/store/temperature/temperature.actions';
+import { setTemperatureUnit } from 'src/app/core/store/temperature/temperature.actions';
 import { selectTemperatureUnit } from 'src/app/core/store/temperature/temperature.selectors';
 
 @Component({
@@ -19,6 +19,6 @@ export class TemperatureUnitToggleComponent {
 
   toggleTemperatureUnit(unit: 'C' | 'F'): void {
     console.log('gets here', unit)
-    this.store.dispatch(loadTemperatureUnit({ temperatureUnit: unit }));
+    this.store.dispatch(setTemperatureUnit({ unit }));
   }
 }

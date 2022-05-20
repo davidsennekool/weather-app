@@ -1,3 +1,3 @@
 import { AppState } from "../app.state";
 
-export const selectTemperatureUnit = (state: AppState) => state.temperature.temperatureUnit;
+export const selectTemperatureUnit = (state: AppState) => state.temperature.unit;
