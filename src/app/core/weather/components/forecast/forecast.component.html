@@ -1,14 +1,18 @@
-<table class="table">
-  <tbody>
-    <tr *ngFor="let dailyForecast of (forecast$ | async)?.daily">
-      <th scope="row">{{ (dailyForecast.dt * 1000) | date:'EE' }}</th>
-      <td>{{ dailyForecast.weather[0].icon }}</td>
-      <td>{{ dailyForecast.temp.day | temperature }}<span>Low</span></td>
-      <td>{{ dailyForecast.temp.max| temperature }}<span>High</span></td>
-      <td>
-        {{ dailyForecast.wind_speed }} <span>km/h</span>
-      </td>
-      <td>{{ (dailyForecast.pop * 100) }}% <span>Rain</span></td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-response-sm">
+  <table class="table forecast-table">
+    <tbody>
+      <tr *ngFor="let dailyForecast of (forecast$ | async)?.daily">
+        <th scope="row">{{ (dailyForecast.dt * 1000) | date:'EE' }}</th>
+        <td>
+          <img [src]="'/assets/images/weather-icons/' + dailyForecast.weather[0].icon + '.svg'" class="weather-icon" alt="Weater icon">
+        </td>
+        <td>{{ dailyForecast.temp.day | temperature }}<span>Low</span></td>
+        <td>{{ dailyForecast.temp.max| temperature }}<span>High</span></td>
+        <td>
+          {{ dailyForecast.wind_speed }} <span>km/h</span>
+        </td>
+        <td>{{ (dailyForecast.pop * 100) }}% <span>Rain</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

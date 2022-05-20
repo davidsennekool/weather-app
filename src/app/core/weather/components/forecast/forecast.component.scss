@@ -1,0 +1,12 @@
+@import './../../../../../styles/common';
+
+.forecast-table {
+  tr, th, td {
+    border: none;
+  }
+
+  .weather-icon {
+    height: 2rem;
+    width: 2rem;
+  }
+}
