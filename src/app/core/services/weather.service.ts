@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, of, tap } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 import { CurrentWeather } from '../interfaces/current-weather';
 import { Forecast } from '../interfaces/forecast';
@@ -36,21 +37,14 @@ export class WeatherService {
           wind: {
             ...res.wind,
             speed: Number((res.wind.speed * 3.6).toFixed(0))
-          }
+          },
+          weather: res.weather.map(weather => ({
+            ...weather,
+            icon: `/assets/images/weather-icons/${weather.icon}.svg`
+          }))
         };
       })
     );
-  }
-
-  getForecast({ location }: { location: string }): Observable<Forecast> {
-    let options = {
-      headers: this.headers,
-      params: {
-        q: location,
-        appid: environment.appId,
-      }
-    };
-    return this.http.get<Forecast>(`${environment.corsUrl}${environment.baseUrl}/data/2.5/forecast`, options);
   }
 
   getForecastOneCall({ lat, lon }: { lat: number; lon: number }): Observable<Forecast> {
@@ -69,47 +63,22 @@ export class WeatherService {
           ...res,
           hourly: res.hourly.map(hourly => ({
             ...hourly,
-            dt: new Date(hourly.dt as number * 1000)
+            dt: new Date(hourly.dt as number * 1000),
+            weather: hourly.weather.map(weather => ({
+              ...weather,
+              icon: `/assets/images/weather-icons/${weather.icon}.svg`
+            }))
           })),
           daily: res.daily.map(daily => ({
             ...daily,
             pop: Math.floor(daily.pop * 100),
-            wind_speed: Math.floor(daily.wind_speed * 3.6)
+            wind_speed: Math.floor(daily.wind_speed * 3.6),
+            weather: daily.weather.map(weather => ({
+              ...weather,
+              icon: `/assets/images/weather-icons/${weather.icon}.svg`
+            }))
           }))
         }
-      })
-    );
-  }
-
-  setTemperatureUnit(unit: string) {
-    localStorage.setItem('temperature_unit', unit);
-  }
-
-
-
-  searchLocation(name: string) {
-    const options = {
-      headers: this.headers,
-      params: {
-        q: name,
-        appid: environment.appId,
-        limit: 5,
-      }
-    };
-    if (name === '') {
-      return of([]);
-    }
-    return this.http.get<[any, string[]]>(`${environment.corsUrl}${environment.baseUrl}/geo/1.0/direct`, options).pipe(
-      tap((response) => {
-        console.log(response)
-      }),
-      map((response: any) => {
-        return [
-          name,
-          [
-            ...response
-          ]
-        ]
       })
     );
   }
