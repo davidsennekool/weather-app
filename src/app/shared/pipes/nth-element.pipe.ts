@@ -1,12 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Hourly } from 'src/app/core/interfaces/forecast';
 
 @Pipe({
   name: 'nthElement'
 })
 export class NthElementPipe implements PipeTransform {
 
-  transform(value: any[], arg?: number): any[] {
-    if (value === null || arg === undefined) return value;
+  transform(value: Hourly[] | undefined, arg: number): Hourly[] {
+    if (value === undefined) return [];
     if (!this.supports(value)) {throw new Error('Error in nthElementPipe')};
     return value.filter((v, i) => (i % arg === 0));
   }

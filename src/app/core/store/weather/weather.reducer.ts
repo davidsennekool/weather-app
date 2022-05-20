@@ -26,7 +26,6 @@ export const weatherReducer = createReducer(
     return {
       ...state,
       current: weatherSuccessResponse.currentWeather,
-      // forecast: weatherSuccessResponse.forecast,
       isLoading: false,
       loaded: true,
     };

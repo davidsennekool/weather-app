@@ -26,11 +26,20 @@ export class WeatherService {
       params: {
         q: location,
         appid: environment.appId,
-        exclude: 'minutely,alerts',
       }
     };
 
-    return this.http.get<CurrentWeather>(`${environment.corsUrl}${environment.baseUrl}/data/2.5/weather`, options);
+    return this.http.get<CurrentWeather>(`${environment.corsUrl}${environment.baseUrl}/data/2.5/weather`, options).pipe(
+      map((res: CurrentWeather): CurrentWeather => {
+        return {
+          ...res,
+          wind: {
+            ...res.wind,
+            speed: Number((res.wind.speed * 3.6).toFixed(0))
+          }
+        };
+      })
+    );
   }
 
   getForecast({ location }: { location: string }): Observable<Forecast> {
@@ -54,7 +63,22 @@ export class WeatherService {
         appid: environment.appId,
       }
     };
-    return this.http.get<Forecast>(`${environment.corsUrl}${environment.baseUrl}/data/2.5/onecall`, options);
+    return this.http.get<Forecast>(`${environment.corsUrl}${environment.baseUrl}/data/2.5/onecall`, options).pipe(
+      map((res: Forecast): Forecast => {
+        return {
+          ...res,
+          hourly: res.hourly.map(hourly => ({
+            ...hourly,
+            dt: new Date(hourly.dt as number * 1000)
+          })),
+          daily: res.daily.map(daily => ({
+            ...daily,
+            pop: Math.floor(daily.pop * 100),
+            wind_speed: Math.floor(daily.wind_speed * 3.6)
+          }))
+        }
+      })
+    );
   }
 
   setTemperatureUnit(unit: string) {

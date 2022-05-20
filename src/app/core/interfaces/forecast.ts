@@ -47,8 +47,8 @@ interface Temp {
   morn: number;
 }
 
-interface Hourly {
-  dt: number;
+export interface Hourly {
+  dt: number | Date;
   temp: number;
   feels_like: number;
   pressure: number;
