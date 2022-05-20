@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { CurrentWeather } from 'src/app/core/interfaces/current-weather';
+
 import { AppState } from 'src/app/core/store/app.state';
 import { selectForecast } from 'src/app/core/store/weather/weather.selectors';
 
@@ -12,6 +11,7 @@ import { selectForecast } from 'src/app/core/store/weather/weather.selectors';
 })
 export class ForecastComponent implements OnInit {
   forecast$ = this.store.select(selectForecast);
+  temperatureUnit = localStorage.getItem('temperature_unit');
 
   constructor(
     private store: Store<AppState>,

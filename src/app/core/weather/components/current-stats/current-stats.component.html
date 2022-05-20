@@ -1,10 +1,11 @@
 <div class="row">
+  <h2>Today's Highlights</h2>
   <div class="col-md-6 col-xl-4 d-flex align-self-stretch mb-4">
     <div class="card w-100 feels-like">
       <div class="card-body">
         <h2 class="card-title">Feels like</h2>
         <div class="card-value">{{ (currentStats$ | async)?.main?.feels_like | temperature }}
-          <span>°{{ temperatureUnit | uppercase }}</span>
+          <span>°{{ temperatureUnit }}</span>
         </div>
       </div>
     </div>

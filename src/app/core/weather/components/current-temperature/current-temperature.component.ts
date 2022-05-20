@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 
-import { CurrentWeather } from 'src/app/core/interfaces/current-weather';
-import { WeatherService } from 'src/app/core/services/weather.service';
 import { AppState } from 'src/app/core/store/app.state';
-import { WeatherState } from 'src/app/core/store/weather/weather.reducer';
-import { selectCurrentTemperature, selectCurrentWeather, selectIsLoading } from 'src/app/core/store/weather/weather.selectors';
+import { selectCurrentTemperature, selectCurrentWeatherIcon, selectIsLoading } from 'src/app/core/store/weather/weather.selectors';
 
 @Component({
   selector: 'app-current-temperature',
@@ -18,9 +14,9 @@ export class CurrentTemperatureComponent {
   localDate = new Date();
   isLoading$ = this.store.select(selectIsLoading);
   currentTemperature$ = this.store.select(selectCurrentTemperature);
+  currentWeatherIcon$ = this.store.select(selectCurrentWeatherIcon);
 
   constructor(
-    private weatherService: WeatherService,
     private store: Store<AppState>,
   ) { }
 }

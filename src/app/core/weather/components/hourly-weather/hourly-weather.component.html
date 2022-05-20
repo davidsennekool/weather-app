@@ -1,11 +1,11 @@
-<p>Today's weather</p>
+<h2>Today's Forecast</h2>
 <div class="row">
-  <div *ngFor="let todaysWeather of (weather$ | async)?.hourly | nthElement:3 | slice:0:6" class="col-md-4 col-lg-2">
+  <div *ngFor="let todaysWeather of (weather$ | async)?.hourly | nthElement:3 | slice:0:6" class="col-md-4 col-lg-2 mb-4">
     <div class="card">
       <div class="card-body text-center">
         <div class="time">{{ todaysWeather.dt | date:'HH:mm' }}</div>
         <img [src]="'/assets/images/weather-icons/' + todaysWeather.weather[0].icon + '.svg'" class="weather-icon" alt="Weather icon">
-        <div class="temperature">{{ todaysWeather.temp | temperature }} °{{ temperatureUnit | uppercase }}</div>
+        <div class="temperature">{{ todaysWeather.temp | temperature }} °{{ temperatureUnit }}</div>
       </div>
     </div>
   </div>

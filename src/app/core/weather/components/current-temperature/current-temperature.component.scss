@@ -1,34 +1,47 @@
 @import '../../../../../styles/common';
 
-.date-info {
+.current-temperature {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  margin-top: 5rem;
-  margin-bottom: 0.75rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
 
-  p {
-    margin: 0;
-    &.today {
-      font-size: 1.75rem;
+  .weather-icon {
+    margin-top: 2rem;
+    height: 7rem;
+    width: 7rem;
+    margin-bottom: 1rem;
+  }
+
+  .temperature {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+
+    h1 {
+      font-size: 6rem;
+      font-weight: 400;
+    }
+    span {
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 4.5rem;
+      padding-left: 0.5rem;
     }
   }
-}
 
-.temperature {
-  display: flex;
-  justify-content: center;
-  font-size: 1.5rem;
+  .date-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 
-  h1 {
-    font-size: 6rem;
-    font-weight: 400;
-  }
-  span {
-    font-size: 3rem;
-    font-weight: 500;
-    line-height: 4.5rem;
-    padding-left: 0.5rem;
+    p {
+      margin: 0;
+      &.today {
+        font-size: 1.75rem;
+      }
+    }
   }
 }

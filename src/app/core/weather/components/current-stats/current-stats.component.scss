@@ -43,7 +43,7 @@
         align-items: center;
         width: 30px;
         height: 30px;
-        border: 2px solid #bebebe;
+        border: 2px solid $gray;
         border-radius: 50%;
 
         img {
@@ -92,7 +92,7 @@
 
         &:before {
           border-radius: $gauge-height $gauge-height 0 0;
-          background: #bebebe;
+          background: #e9e9e9;
         }
 
         &:after {
