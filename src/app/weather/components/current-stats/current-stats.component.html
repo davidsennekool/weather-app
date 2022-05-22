@@ -30,7 +30,7 @@
     <div class="card w-100 uvi">
       <div class="card-body">
         <h2 class="card-title">UV Index</h2>
-        <app-uv-gauge [uvIndex]="(forecast$ | async)!.current!.uvi"></app-uv-gauge>
+        <app-uv-gauge [uvIndex]="(forecast$ | async)?.current?.uvi"></app-uv-gauge>
       </div>
     </div>
   </div>

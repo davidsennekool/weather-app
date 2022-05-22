@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./uv-gauge.component.scss']
 })
 export class UvGaugeComponent {
-  @Input() uvIndex!: number;
+  @Input() uvIndex!: number | undefined;
 
   constructor() { }
 
