@@ -7,6 +7,7 @@ import { ForecastComponent } from './components/forecast/forecast.component';
 import { HourlyWeatherComponent } from './components/hourly-weather/hourly-weather.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ForecastTableColumnComponent } from './components/forecast-table-column/forecast-table-column.component';
+import { WeatherService } from './services/weather.service';
 
 
 @NgModule({
@@ -26,6 +27,9 @@ import { ForecastTableColumnComponent } from './components/forecast-table-column
     CurrentStatsComponent,
     HourlyWeatherComponent,
     ForecastComponent
+  ],
+  providers: [
+    WeatherService,
   ],
 })
 export class WeatherModule { }

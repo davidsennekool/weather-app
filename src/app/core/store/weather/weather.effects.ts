@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, switchMap } from "rxjs";
 
-import { WeatherService } from "../../services/weather.service";
+import { WeatherService } from "../../../weather/services/weather.service";
 import { loadOneCallForecastSuccess, loadWeather, loadWeatherSuccess } from "./weather.actions";
 
 @Injectable()
