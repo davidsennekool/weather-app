@@ -30,16 +30,7 @@
     <div class="card w-100 uvi">
       <div class="card-body">
         <h2 class="card-title">UV Index</h2>
-
-        <figure>
-          <div class="gauge percentage">
-            <div [ngStyle]="{'transform': 'rotate(' + (((forecast$ | async)?.current?.uvi! * 180) / 11) + 'deg)'}"
-              class="meter"></div>
-            <div class="percentage-container">
-              <div class="percentage-indicator">{{ math.floor((forecast$ | async)?.current?.uvi!) }}</div>
-            </div>
-          </div>
-        </figure>
+        <app-uv-gauge [uvIndex]="(forecast$ | async)!.current!.uvi"></app-uv-gauge>
       </div>
     </div>
   </div>

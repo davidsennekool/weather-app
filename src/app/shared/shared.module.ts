@@ -8,6 +8,7 @@ import { NthElementPipe } from './pipes/nth-element.pipe';
 import { LocationSearchComponent } from './components/location-search/location-search.component';
 import { WindDirectionPipe } from './pipes/wind-direction.pipe';
 import { TemperatureUnitToggleComponent } from './components/temperature-unit-toggle/temperature-unit-toggle.component';
+import { UvGaugeComponent } from './components/uv-gauge/uv-gauge.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TemperatureUnitToggleComponent } from './components/temperature-unit-to
     LocationSearchComponent,
     WindDirectionPipe,
     TemperatureUnitToggleComponent,
+    UvGaugeComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,7 @@ import { TemperatureUnitToggleComponent } from './components/temperature-unit-to
     WindDirectionPipe,
     LocationSearchComponent,
     TemperatureUnitToggleComponent,
+    UvGaugeComponent,
   ]
 })
 export class SharedModule { }
