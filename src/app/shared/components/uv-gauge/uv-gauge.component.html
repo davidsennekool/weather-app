@@ -1,6 +1,6 @@
 <figure>
   <div class="gauge percentage">
-    <div [ngStyle]="{'transform': 'rotate(' + meterRotation + 'deg)'}" class="meter"></div>
+    <div [ngStyle]="{'transform': 'rotate(' + ((uvIndex * 180) / 11) + 'deg)'}" class="meter"></div>
     <div class="percentage-container">
       <div class="percentage-indicator">{{ uvIndex }}</div>
     </div>

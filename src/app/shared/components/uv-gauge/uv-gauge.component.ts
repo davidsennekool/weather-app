@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class UvGaugeComponent {
   @Input() uvIndex!: number;
-  meterRotation = ((this.uvIndex * 180) / 11);
 
   constructor() { }
 
