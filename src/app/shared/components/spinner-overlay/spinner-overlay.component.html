@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <div class="overlay" *ngIf="isLoading$ | async">
+    <div class="spinner-wrapper">
+      <app-spinner></app-spinner>
+    </div>
+  </div>
+
+  <div class="loaded-content" [class.blurred]="isLoading$ | async">
+    <ng-content></ng-content>
+  </div>
+</div>

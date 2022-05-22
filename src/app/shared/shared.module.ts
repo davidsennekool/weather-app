@@ -9,6 +9,8 @@ import { LocationSearchComponent } from './components/location-search/location-s
 import { WindDirectionPipe } from './pipes/wind-direction.pipe';
 import { TemperatureUnitToggleComponent } from './components/temperature-unit-toggle/temperature-unit-toggle.component';
 import { UvGaugeComponent } from './components/uv-gauge/uv-gauge.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { UvGaugeComponent } from './components/uv-gauge/uv-gauge.component';
     WindDirectionPipe,
     TemperatureUnitToggleComponent,
     UvGaugeComponent,
+    SpinnerComponent,
+    SpinnerOverlayComponent,
   ],
   imports: [
     CommonModule,
@@ -32,6 +36,8 @@ import { UvGaugeComponent } from './components/uv-gauge/uv-gauge.component';
     LocationSearchComponent,
     TemperatureUnitToggleComponent,
     UvGaugeComponent,
+    SpinnerComponent,
+    SpinnerOverlayComponent,
   ]
 })
 export class SharedModule { }
