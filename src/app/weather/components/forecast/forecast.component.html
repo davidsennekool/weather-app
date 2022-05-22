@@ -1,28 +1,29 @@
 <div class="forecast-table py-3">
   <h2>7 Day forecast</h2>
   <div *ngFor="let dailyForecast of (forecast$ | async)?.daily" class="card forecast-table-row">
-    <div class="table-col table-head">
-      <h2>{{ (dailyForecast.dt * 1000) | date:'EE' }}</h2>
-      <span>{{ (dailyForecast.dt * 1000) | date:'dd/MM' }} </span>
-    </div>
-    <div class="table-col">
+
+    <app-forecast-table-column class="table-head" [tag]="(dailyForecast.dt * 1000) | date:'dd/MM'">
+      {{ (dailyForecast.dt * 1000) | date:'EE' }}
+    </app-forecast-table-column>
+
+    <app-forecast-table-column>
       <img [src]="dailyForecast.weather[0].icon" class="weather-icon" alt="Weater icon">
-    </div>
-    <div class="table-col">
-      <h2>{{ dailyForecast.temp.day | temperature:(temperatureUnit$ | async) }} °{{ (temperatureUnit$ | async) }}</h2>
-      <span>Low</span>
-    </div>
-    <div class="table-col">
-      <h2>{{ dailyForecast.temp.max | temperature:(temperatureUnit$ | async) }} °{{ (temperatureUnit$ | async) }}</h2>
-      <span>High</span>
-    </div>
-    <div class="table-col">
-      <h2>{{ dailyForecast.wind_speed }} km/h</h2>
-      <span>Wind Speed</span>
-    </div>
-    <div class="table-col">
-      <h2>{{ dailyForecast.pop }}%</h2>
-      <span>Rain</span>
-    </div>
+    </app-forecast-table-column>
+
+    <app-forecast-table-column [tag]="'Low'">
+      {{ dailyForecast.temp.day | temperature:(temperatureUnit$ | async) }} °{{ (temperatureUnit$ | async) }}
+    </app-forecast-table-column>
+
+    <app-forecast-table-column [tag]="'High'">
+      {{ dailyForecast.temp.max | temperature:(temperatureUnit$ | async) }} °{{ (temperatureUnit$ | async) }}
+    </app-forecast-table-column>
+
+    <app-forecast-table-column [tag]="'Wind Speed'">
+      {{ dailyForecast.wind_speed }} km/h
+    </app-forecast-table-column>
+
+    <app-forecast-table-column [tag]="'Rain'">
+      {{ dailyForecast.pop }}%
+    </app-forecast-table-column>
   </div>
 </div>

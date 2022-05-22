@@ -1,0 +1,23 @@
+@import '../../../../styles/common';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 2;
+
+  &.table-head {
+    flex: 1
+  }
+
+  h2 {
+    font-size: 1.125rem;
+    margin: 0;
+  }
+
+  span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $gray;
+  }
+}
