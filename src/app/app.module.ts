@@ -14,6 +14,7 @@ import { weatherReducer } from './core/store/weather/weather.reducer';
 import { SharedModule } from './shared/shared.module';
 import { temperatureUnitReducer } from './core/store/temperature/temperature.reducer';
 import { TemperatureEffects } from './core/store/temperature/temperature.effects';
+import { WeatherModule } from './weather/weather.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { TemperatureEffects } from './core/store/temperature/temperature.effects
     }),
     SharedModule,
     CoreModule,
+    WeatherModule,
     BrowserAnimationsModule,
     NgbModule,
   ],
