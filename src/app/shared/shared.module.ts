@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbToastModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TemperaturePipe } from './pipes/temperature.pipe';
@@ -11,6 +11,8 @@ import { TemperatureUnitToggleComponent } from './components/temperature-unit-to
 import { UvGaugeComponent } from './components/uv-gauge/uv-gauge.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
+import { ToastService } from './services/toast.service';
+import { ToastsComponent } from './components/toasts/toasts.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-ov
     UvGaugeComponent,
     SpinnerComponent,
     SpinnerOverlayComponent,
+    ToastsComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbTypeaheadModule
+    NgbTypeaheadModule,
+    NgbToastModule,
   ],
   exports: [
     TemperaturePipe,
@@ -38,6 +42,10 @@ import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-ov
     UvGaugeComponent,
     SpinnerComponent,
     SpinnerOverlayComponent,
+    ToastsComponent,
+  ],
+  providers: [
+    ToastService,
   ]
 })
 export class SharedModule { }

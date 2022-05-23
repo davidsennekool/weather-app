@@ -36,3 +36,8 @@ export const loadOneCallForecastSuccess = createAction(
     }
   }>()
 );
+
+export const loadOneCallForecastFailure = createAction(
+  '[Weather] Weather One Call Forecast Failure',
+  props<{ error: string }>()
+);

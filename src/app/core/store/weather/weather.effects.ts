@@ -1,9 +1,11 @@
+import { HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap } from "rxjs";
+import { catchError, map, of, switchMap } from "rxjs";
+import { ToastService } from "src/app/shared/services/toast.service";
 
 import { WeatherService } from "../../../weather/services/weather.service";
-import { loadOneCallForecastSuccess, loadWeather, loadWeatherSuccess } from "./weather.actions";
+import { loadOneCallForecastFailure, loadOneCallForecastSuccess, loadWeather, loadWeatherFailure, loadWeatherSuccess } from "./weather.actions";
 
 @Injectable()
 export class WeatherEffects {
@@ -18,6 +20,9 @@ export class WeatherEffects {
               location: action.location
             }
           })
+        }),
+        catchError((error: HttpErrorResponse) => {
+          return of(loadWeatherFailure({ error: error.message }))
         })
       );
     })
@@ -33,13 +38,24 @@ export class WeatherEffects {
               forecast
             },
           })
+        }),
+        catchError((error: HttpErrorResponse) => {
+          return of(loadOneCallForecastFailure({ error: error.message }))
         })
       )
     })
-  ))
+  ));
+
+  displayErrorMessage$ = createEffect(() => this.actions$.pipe(
+    ofType(loadWeatherFailure, loadOneCallForecastFailure),
+    map(({ error }) => {
+      this.toastService.show(error, { className: 'bg-danger text-white', delay: 4000 });
+    })
+  ), { dispatch: false });
 
   constructor(
     private actions$: Actions,
     private weatherService: WeatherService,
+    private toastService: ToastService
   ) {}
 }

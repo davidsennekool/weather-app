@@ -1,7 +1,7 @@
 import { Action, createReducer, createSelector, on } from "@ngrx/store";
 import { CurrentWeather } from "../../interfaces/current-weather";
 import { Forecast } from "../../interfaces/forecast";
-import { loadOneCallForecast, loadOneCallForecastSuccess, loadWeather, loadWeatherFailure, loadWeatherSuccess } from "./weather.actions";
+import { loadOneCallForecast, loadOneCallForecastFailure, loadOneCallForecastSuccess, loadWeather, loadWeatherFailure, loadWeatherSuccess } from "./weather.actions";
 
 export interface WeatherState {
   current?: CurrentWeather;
@@ -9,7 +9,7 @@ export interface WeatherState {
   location: string;
   isLoading: boolean;
   loaded: boolean;
-  currentWeatherError?: string;
+  errorMessage?: string;
 };
 
 const initialState: WeatherState = {
@@ -37,7 +37,7 @@ export const weatherReducer = createReducer(
     ...state,
     isLoading: false,
     loaded: true,
-    currentWeatherError: error
+    errorMessage: error
   })),
   on(loadOneCallForecast, (state): WeatherState => ({
     ...state,
@@ -48,5 +48,11 @@ export const weatherReducer = createReducer(
     forecast: weatherSuccessResponse.forecast,
     isLoading: false,
     loaded: true
+  })),
+  on(loadOneCallForecastFailure, (state, { error }): WeatherState => ({
+    ...state,
+    isLoading: false,
+    loaded: true,
+    errorMessage: error
   }))
 );

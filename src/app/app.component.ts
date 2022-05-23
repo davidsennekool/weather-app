@@ -10,7 +10,6 @@ import { setTemperatureUnit } from './core/store/temperature/temperature.actions
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
   constructor(
     private store: Store<AppState>,
   ) { }

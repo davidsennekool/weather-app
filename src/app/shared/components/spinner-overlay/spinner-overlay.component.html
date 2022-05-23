@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" [ngClass]="{'loaded': !(isLoading$ | async)}">
   <div class="overlay" *ngIf="isLoading$ | async">
     <div class="spinner-wrapper">
       <app-spinner></app-spinner>
