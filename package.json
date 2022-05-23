@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run config && ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "config": "ts-node src/environments/set-env.ts"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +29,7 @@
     "bootstrap": "^5.1.3",
     "dotenv": "^16.0.1",
     "rxjs": "~7.5.0",
+    "ts-node": "^10.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
