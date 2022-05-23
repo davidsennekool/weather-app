@@ -6,7 +6,6 @@ import { WeatherState } from "./weather.reducer";
 export const selectWeather = (state: AppState) => state.weather;
 export const selectLocation = (state: AppState) => state.weather.location;
 
-export const selectLoaded = (state: WeatherState) => state.loaded;
 export const selectIsLoading = createSelector(
   selectWeather,
   (state: WeatherState) => state.isLoading
